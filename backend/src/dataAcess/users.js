@@ -20,10 +20,36 @@ export default class UsersDataAccess {
   }
 
   async updateUser(userId, userData) {
-    const result = await Mongo.db
-      .collection(collectionName)
-      .findOneAndUpdate({ _id: new ObjectId(userId) }, { $set: userData });
+    if (userData.password) {
+      const salt = crypto.randomBytes(16);
 
-    return result;
+      crypto.pbkdf2(
+        userData.password,
+        salt,
+        310000,
+        16,
+        "sha256",
+        async (error, hashedPassword) => {
+          if (error) {
+            throw new Error('Error during hashing password')
+          }
+
+          userData = { ...userData, password: hashedPassword, salt }
+
+          const result = await Mongo.db
+            .collection(collectionName)
+            .findOneAndUpdate(
+              { _id: new ObjectId(userId) },
+              { $set: userData }
+            );
+          return result;
+        }
+      );
+    } else {
+      const result = await Mongo.db
+        .collection(collectionName)
+        .findOneAndUpdate({ _id: new ObjectId(userId) }, { $set: userData });
+      return result;
+    }
   }
 }
