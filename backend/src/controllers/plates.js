@@ -18,7 +18,7 @@ export default class PlatesControllers {
 
     async getAvailablePlates() {
         try {
-            const plates = await this.dataAcess.getAvaliablePlates();
+            const plates = await this.dataAcess.getAvailablePlates();
 
             return ok(plates);
         } catch (error) {
