@@ -1,6 +1,7 @@
+import OrdersDataAccess from '../dataAcess/orders.js';
 import { ok, serverError } from '../helpers/httpResponse.js';
 
-export default class PlatesControllers {
+export default class OrdersControllers {
     constructor() {
         this.dataAcess = new OrdersDataAccess();
     }
