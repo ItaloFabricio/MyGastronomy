@@ -57,15 +57,6 @@ export default class OrdersDataAccess {
     return result;
   }
 
-  async getAvailableOrders() {
-    const result = await Mongo.db
-    .collection(collectionName)
-    .find({ available: true })
-    .toArray();
-
-    return result;
-  }
-
   async getOrdersByUserId(userId) {
     const result = await Mongo.db
     .collection(collectionName)
