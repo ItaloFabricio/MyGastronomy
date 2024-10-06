@@ -1,10 +1,10 @@
-
+import Navbar from "./components/navbar/navbar"
 
 
 export default function App() {
   return (
     <>
-      <h1>My Gastronomy</h1>
+      <Navbar/>
     </>
   )
 }
