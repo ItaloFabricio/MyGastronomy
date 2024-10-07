@@ -6,7 +6,7 @@ import authService from "../services/auth";
 export default function Auth () {
     const [formType, setFormType] = useState('login');
     const [formData, setFormData] = useState(null);
-    const { login } = authService();
+    const { login, signup } = authService();
 
     const handleChangeFormType = () => {
         setFormData(null)
@@ -26,7 +26,6 @@ export default function Auth () {
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        console.log(formData)
 
         switch (formType) {
             case 'login':
@@ -35,7 +34,9 @@ export default function Auth () {
             case 'signup':
                 if(formData.password !== formData.confirmPassword) {
                     console.log('Password do not match')
+                    return
                 }
+                signup(formData);
             break
         }
     }

@@ -17,9 +17,15 @@ export default function authService() {
             },
             body: JSON.stringify(formData)
         })
-        .then((response) => response.json)
+        .then((response) => response.json())
         .then((result) => {
             console.log(result)
+            if(result.success && result.body.token) {
+                localStorage.setItem(
+                    'auth', 
+                    JSON.stringify({ token: result.body.token, user: result.body.user })
+                )
+            }
         })
         .catch((error) => {
             console.log(error)
@@ -34,6 +40,32 @@ export default function authService() {
     }
 
     const signup = (formData) => {
+        setAuthLoading(true);
+        
+        fetch(`${url}/signup`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            console.log(result)
+            if(result.success && result.body.token) {
+                localStorage.setItem(
+                    'auth', 
+                    JSON.stringify({ token: result.body.token, user: result.body.user })
+                )
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+        .finally(() => {
+            setAuthLoading(false)
+        })
         
     }
 
