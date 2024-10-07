@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, TextField } from "@mui/material";
 import styles from "./page.module.css";
 import authService from "../services/auth";
@@ -6,7 +6,7 @@ import authService from "../services/auth";
 export default function Auth () {
     const [formType, setFormType] = useState('login');
     const [formData, setFormData] = useState(null);
-    const { login, signup } = authService();
+    const { login, signup, authLoading } = authService();
 
     const handleChangeFormType = () => {
         setFormData(null)
@@ -39,6 +39,12 @@ export default function Auth () {
                 signup(formData);
             break
         }
+    }
+
+    if(authLoading) {
+        return (
+            <h1>Loading...</h1>
+        )
     }
 
     if(formType === 'login') {
