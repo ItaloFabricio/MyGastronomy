@@ -7,6 +7,7 @@ export default function Auth () {
     const [formData, setFormData] = useState(null);
 
     const handleChangeFormType = () => {
+        setFormData(null)
         if(formType === 'login') {
             setFormType('signup')
         } else {
@@ -22,8 +23,18 @@ export default function Auth () {
     }
 
     const handleSubmitForm = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         console.log(formData)
+
+        switch (formType) {
+            case 'login':
+                break
+            case 'signup':
+                if(formData.password !== formData.confirmPassword) {
+                    console.log('Password do not match')
+                }
+            break
+        }
     }
 
     if(formType === 'login') {
@@ -55,10 +66,44 @@ export default function Auth () {
 
     if(formType === 'signup') {
         return (
-            <>
-                <h1>Signup</h1>
-                <button onClick={handleChangeFormType}>Already have an account ? Click here</button>
-            </>
+            <div className={styles.authPageContainer}>
+            <h1>Signup</h1>
+            <button onClick={handleChangeFormType}>Don't you have an account ? Click here</button>
+            <form onSubmit={handleSubmitForm}>
+                <TextField
+                    required
+                    label='Nome'
+                    type="fullname"
+                    name="fullname"
+                    onChange={handleFormDataChange}
+                />
+
+                <TextField
+                    required
+                    label='Email'
+                    type="email"
+                    name="email"
+                    onChange={handleFormDataChange}
+                />
+
+                <TextField
+                    required
+                    label="Password"
+                    type="password"
+                    name="password"
+                    onChange={handleFormDataChange}
+                />
+                
+                <TextField
+                    required
+                    label="Confirm password"
+                    type="password"
+                    name="confirmPassword"
+                    onChange={handleFormDataChange}
+                />
+                <Button type="submit">Signup</Button>
+            </form>
+        </div>
         )
     }
     
