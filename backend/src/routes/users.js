@@ -6,21 +6,21 @@ const usersRouter = express.Router();
 const usersControllers = new UsersControllers();
 
 usersRouter.get('/', async (req, res) => {
-    const { sucess, statusCode, body  } = await usersControllers.getUsers();
+    const { success, statusCode, body  } = await usersControllers.getUsers();
 
-    res.status(statusCode).send({ sucess, statusCode, body })
+    res.status(statusCode).send({ success, statusCode, body })
 })
 
 usersRouter.delete('/:id', async (req, res) => {
-    const { sucess, statusCode, body  } = await usersControllers.deleteUser(req.params.id);
+    const { success, statusCode, body  } = await usersControllers.deleteUser(req.params.id);
 
-    res.status(statusCode).send({ sucess, statusCode, body })
+    res.status(statusCode).send({ success, statusCode, body })
 })
 
 usersRouter.patch('/:id', async (req, res) => {
-    const { sucess, statusCode, body  } = await usersControllers.updateUser(req.params.id, req.body);
+    const { success, statusCode, body  } = await usersControllers.updateUser(req.params.id, req.body);
 
-    res.status(statusCode).send({ sucess, statusCode, body })
+    res.status(statusCode).send({ success, statusCode, body })
 })
 
 export default usersRouter;
