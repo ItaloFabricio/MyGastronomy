@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button, TextField } from "@mui/material";
 import styles from "./page.module.css";
-import authService from "../services/auth";
+import authService from "../../services/auth";
 import { useNavigate } from "react-router-dom";
 
 export default function Auth () {

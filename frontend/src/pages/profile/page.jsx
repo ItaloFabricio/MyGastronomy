@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import authService from "../services/auth";
+import authService from "../../services/auth";
 
 export default function Profile () {
     const { logout } = authService(); 
