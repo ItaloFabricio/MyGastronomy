@@ -31,18 +31,18 @@ export default function Profile () {
     console.log(ordersData);
 
     return (
-        <>
-            <h1>{authData?.user?.fullname}</h1>
-            <h3>{authData?.user?.email}</h3>
-            <button onClick={handleLogout}>Logout</button>
-
+        <div className={styles.pageContainer}>
+            
             <div>
-                
+                <h1>{authData?.user?.fullname}</h1>
+                <h3>{authData?.user?.email}</h3>
+                <button onClick={handleLogout}>Logout</button>
+
             </div>
             {ordersData.length > 0 ? 
-                <div className={styles.orderContainer}>
+                <div className={styles.ordersContainer}>
                     {ordersData.map((order) => (
-                        <div key={order._id}>
+                        <div key={order._id} className={styles.orderContainer}>
                             <p>{order.pickupStatus}</p>
                             <h3>{order.pickupTime}</h3>
                             {order.orderItems.map((item) => (
@@ -59,6 +59,6 @@ export default function Profile () {
                     You do not have orders yet
                 </div>
             }
-        </>
+        </div>
     )
 }
