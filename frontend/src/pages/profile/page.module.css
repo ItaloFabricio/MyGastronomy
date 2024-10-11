@@ -6,9 +6,12 @@
 }
 
 .orderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 00.5em;
     background-color: #004643;
     color: #faf0ca;
-    padding: 0.5em;
+    padding: 1em;
     border-radius: 0.5em;
 }
 
@@ -16,6 +19,25 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5em;
+}
+
+.pickupStatus {
+    border-radius: 0.5em;
+    width: fit-content;
+    padding: 0.2em;
+    font-size: medium;
+}
+
+.pending {  
+    background-color: #a19810;
+}
+
+.completed {
+    background-color: #03b955;
+}
+
+.canceled {
+    background-color: #b93703;
 }
 
 @media screen and (max-width: 800px) {

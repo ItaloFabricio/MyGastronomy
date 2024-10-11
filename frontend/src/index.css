@@ -2,11 +2,11 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
 }
 
 #root {
 	font-size: x-large;
-	font-family: sans-serif;
 }
 
 main {
@@ -15,6 +15,10 @@ main {
 }
 
 button {
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	justify-content: center;
 	width: fit-content;
 	background-color: #004643;
     color: #faf0ca;
@@ -23,4 +27,10 @@ button {
 	font-size: 0.6em;
 	padding: 1em;
 	cursor: pointer;
+}
+
+p {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
 }
