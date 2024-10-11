@@ -29,7 +29,8 @@
 }
 
 .pending {  
-    background-color: #a19810;
+    background-color: #d3cf00;
+    color: #022e2c;
 }
 
 .completed {
