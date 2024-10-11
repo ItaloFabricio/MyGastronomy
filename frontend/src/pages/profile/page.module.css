@@ -17,3 +17,9 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5em;
 }
+
+@media screen and (max-width: 800px) {
+    .ordersContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
