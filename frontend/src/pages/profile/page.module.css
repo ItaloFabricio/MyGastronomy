@@ -41,6 +41,11 @@
     background-color: #b93703;
 }
 
+.platesLink {
+    color: #004643;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 800px) {
     .ordersContainer {
         grid-template-columns: repeat(1, 1fr);

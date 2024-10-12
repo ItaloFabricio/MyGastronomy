@@ -4,6 +4,8 @@ import authService from "../../services/auth";
 import orderServices from "../../services/order";
 import styles from './page.module.css';
 import { LuAlertCircle, LuCheckCircle, LuLogOut, LuTimer } from "react-icons/lu";
+import { Link } from "react-router-dom";
+import Loading from "../loading/page";
 
 
 export default function Profile () {
@@ -20,8 +22,8 @@ export default function Profile () {
         }
     }, [authData, refetchOrders])
 
-    if(orderLoading) {
-        return( <h1>Loading...</h1>)
+    if(true) {
+        return( <Loading/>)
     } 
 
     const handleLogout = () => {
@@ -60,7 +62,8 @@ export default function Profile () {
                 </div>
             :
                 <div>
-                    You do not have orders yet
+                    <p>You do not have orders yet</p>
+                    <Link to={'/plates'} className={styles.platesLink}>Click here and see our specialities!</Link>
                 </div>
             }
         </div>
