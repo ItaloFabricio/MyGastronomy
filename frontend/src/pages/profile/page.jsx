@@ -22,7 +22,7 @@ export default function Profile () {
         }
     }, [authData, refetchOrders])
 
-    if(true) {
+    if(orderLoading) {
         return( <Loading/>)
     } 
 

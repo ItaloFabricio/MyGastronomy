@@ -1,0 +1,20 @@
+.footerContainer, .linksContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #004643;
+    color: #faf0ca ;
+}
+
+.footerContainer {
+    gap: 1em;
+    padding-bottom: 1em;
+}
+
+.footerContainer img {
+    width: 6em;
+}
+
+.link, a {
+    color: #faf0ca ;
+}
