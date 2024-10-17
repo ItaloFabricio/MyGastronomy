@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from "react";
 
-const CartContext = createContext ();
+const CartContext = createContext(); 
 
-export default function CartProvider({ children }) {
+export function CartProvider({ children }) {
     const [cartItems, setCartItems] = useState([]);
 
     const addToCart = (itemToAdd) => {
@@ -32,8 +32,8 @@ export default function CartProvider({ children }) {
 
 }
 
-export const userCartContext = () => {
-    const context = useContext(CartContext)
+export const useCartContext = () => {
+    const context = useContext(CartContext);
 
     if(!context) {
         console.log('You are out of CartContext')

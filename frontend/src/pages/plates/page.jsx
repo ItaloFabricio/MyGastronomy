@@ -4,13 +4,13 @@ import Loading from "../loading/page";
 import PlateCard from "../../components/plateCard/plateCard";
 import styles from './page.module.css';
 import PlatePopup from "../../components/platePopup/platePopup";
-import { userCartContext } from "../../contexts/useCartContext";
+import { useCartContext } from "../../contexts/useCartContext";
 
 export default function Plates () {
 
     const { getAvailablesPlates, platesData, platesLoading, refetchPlates } = platesServices();
     const [plateSelected, setPlateSelected] = useState(null);
-    const { addToCart } = userCartContext();
+    const { addToCart } = useCartContext();
 
     useEffect(() => {
         if (refetchPlates) {

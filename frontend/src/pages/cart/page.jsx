@@ -1,8 +1,8 @@
-import { userCartContext } from "../../contexts/useCartContext"
+import { useCartContext } from "../../contexts/useCartContext"
 
 export default function Cart () {
 
-    const { cartItems } = userCartContext();
+    const { cartItems } = useCartContext();
     console.log(cartItems);
     return (
         <h1>Cart</h1>
