@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import platesServices from "../../services/plates"
 import Loading from "../loading/page";
 import PlateCard from "../../components/plateCard/plateCard";
 import styles from './page.module.css';
 import PlatePopup from "../../components/platePopup/platePopup";
 import { useCartContext } from "../../contexts/useCartContext";
+
 
 export default function Plates () {
 
