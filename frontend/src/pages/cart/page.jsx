@@ -35,7 +35,7 @@ export default function Cart() {
         removeFromCart(item._id);
       }
     });
-  }, [cartItems, removeFromCart]);
+  }, [removeFromCart]);
 
   if (!cartItems.length) {
     return (
