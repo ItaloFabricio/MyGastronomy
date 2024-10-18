@@ -1,6 +1,7 @@
 import { LuMinusCircle } from "react-icons/lu";
 import { useCartContext } from "../../contexts/useCartContext";
 import styles from "./page.module.css";
+import { useEffect } from "react";
 
 
 export default function Cart() {
@@ -12,7 +13,12 @@ export default function Cart() {
         if(item._id === itemId) {
             if(mode === 'less' && item.quantity > 1) {
                 item.quantity -= 1;
-            } else if (mode === 'more'){
+            } 
+            if(mode === 'less' && item.quantity === 1) {
+                item.quantity = 0;
+            }
+           
+            else if (mode === 'more'){
                 item.quantity += 1;
             }
         }
@@ -22,6 +28,14 @@ export default function Cart() {
 
     updateCartItems(updatedCartItem);
   }
+
+  useEffect(() => {
+    cartItems.forEach((item) => {
+      if (item.quantity <= 0) {
+        removeFromCart(item._id);
+      }
+    });
+  }, [cartItems, removeFromCart]);
 
   if (!cartItems.length) {
     return (
