@@ -1,24 +1,12 @@
 .popupContainer {
-    color: #004643;
-}
-
-.popupContainer img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
-}
-
-.popupContent {
     display: flex;
     flex-direction: column;
     gap: 1em;
     padding: 1em;
+	color: #004643;
 }
 
-.popupContent button {
-    font-size: medium;
-}
-
-.ingredients {
-    color: #444444;
+.confirmBtns {
+    display: flex;
+    gap: .5em;
 }
