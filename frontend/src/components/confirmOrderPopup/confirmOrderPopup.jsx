@@ -1,12 +1,31 @@
 import { Dialog, TextField } from "@mui/material";
 import styles from "./confirmOrderPopup.module.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ConfirmOrderPopup({ open, onClose, onConfirm }) {
   const [formData, setFormData] = useState(null);
+  const authData = JSON.parse(localStorage.getItem('auth'));
+  const navigate = useNavigate();
 
-  const handleConfirm = () => {
-    onConfirm(orderData);
+  const handleConfirm = (e) => {
+    e.preventDefault()
+
+    if(!authData?.user?._id) {
+        return navigate('/auth')
+    } else {
+        if(!formData?.pickupTime) {
+            return
+        } else {
+            const orderData = {
+                userId: authData?.user?._id,
+                pickupTime: formData?.pickupTime
+            }
+
+            onConfirm(orderData)
+        }
+        
+    }
   };
 
   const handleFormDataChange = (e) => {

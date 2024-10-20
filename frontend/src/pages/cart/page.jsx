@@ -3,11 +3,13 @@ import { useCartContext } from "../../contexts/useCartContext";
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import ConfirmOrderPopup from "../../components/confirmOrderPopup/confirmOrderPopup";
+import orderServices from "../../services/order";
 
 
 export default function Cart() {
-  const { cartItems, updateCartItems, removeFromCart } = useCartContext();
+  const { cartItems, updateCartItems, removeFromCart, clearCart } = useCartContext();
   const [ confirmPopupOpen, setConfirmPopupOpen] = useState(false);
+  const { sendOrder } = orderServices();
   console.log(cartItems);
 
   const handleChangeItemQty = (mode, itemId) => {
@@ -31,12 +33,18 @@ export default function Cart() {
     updateCartItems(updatedCartItem);
   }
 
-  const onHandleOpenPopup = () => {
+  const onHandleOpenPopup = (e) => {
+    e.preventDefault();
     setConfirmPopupOpen(!confirmPopupOpen);
   }
 
   const onHandleConfirmOrder = (orderData) => {
-      console.log(orderData)
+    orderData.items = cartItems.map((item) => {
+      return { plateId: item._id, quantity: item.quantity }
+    })
+      sendOrder(orderData);
+      setConfirmPopupOpen(!confirmPopupOpen);
+      clearCart();
   }
 
   useEffect(() => {
