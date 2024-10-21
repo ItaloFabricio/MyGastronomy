@@ -15,7 +15,8 @@ export default function ConfirmOrderPopup({ open, onClose, onConfirm }) {
         return navigate('/auth')
     } else {
         if(!formData?.pickupTime) {
-            return
+            alert('Please select a pickup time.');
+            return;
         } else {
             const orderData = {
                 userId: authData?.user?._id,
