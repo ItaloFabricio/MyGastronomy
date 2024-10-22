@@ -3,11 +3,13 @@ import { LuShoppingCart, LuUserCircle, LuMenu } from "react-icons/lu";
 import { Drawer } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../../contexts/useUserContext";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
-  const authData = JSON.parse(localStorage.getItem('auth'));
-  const firstName = authData?.user?.fullname?.split(' ')[0];
+  const { user } =  useUserContext();
+  const firstName = user?.user?.fullname?.split(' ')[0];
+ 
 
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
