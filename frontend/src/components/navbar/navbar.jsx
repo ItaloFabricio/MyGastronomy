@@ -7,15 +7,13 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const authData = JSON.parse(localStorage.getItem('auth'));
-  const firstName = authData?.user?.fullname.split(' ')[0];
+  const firstName = authData?.user?.fullname?.split(' ')[0];
 
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
   };
 
-  useEffect(() => {
-    
-  }, [authData])
+ 
 
   return (
     <nav className={styles.navbarContainer}>
@@ -36,7 +34,7 @@ export default function Navbar() {
           </Link>
           <Link to={'/profile'} className={styles.navbarLinkProfile}>
             <LuUserCircle className={styles.navbarLink} />
-            <p>{firstName}</p>
+           {firstName && <p>{firstName}</p>}
           </Link>
           
         </div>
