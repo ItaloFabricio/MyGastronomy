@@ -59,10 +59,15 @@ export default function authService() {
         .then((result) => {
             console.log(result)
             if(result.success && result.body.token) {
-                localStorage.setItem(
-                    'auth', 
-                    JSON.stringify({ token: result.body.token, user: result.body.user })
-                )
+                const authData = { token: result.body.token, user: result.body.user };
+
+                // Salva no localStorage
+                localStorage.setItem('auth', JSON.stringify(authData));
+
+                // Atualiza o contexto com o usuário logado
+                setUser(authData);
+
+
             }
         })
         .catch((error) => {

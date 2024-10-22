@@ -49,7 +49,7 @@ export default function Auth () {
                     console.log('Password do not match')
                     return
                 }
-                signup(formData);
+                signup(formData, setUser);
             break
         }
     }
