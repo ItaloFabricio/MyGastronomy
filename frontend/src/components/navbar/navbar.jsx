@@ -1,35 +1,41 @@
 import styles from "./navbar.module.css";
 import { LuShoppingCart, LuUserCircle, LuMenu } from "react-icons/lu";
 import { Drawer } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
+  const authData = JSON.parse(localStorage.getItem('auth'));
 
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
   };
 
+  useEffect(() => {
+    
+  }, [authData])
+
   return (
     <nav className={styles.navbarContainer}>
       <div className={styles.navbarItems}>
         <Link to={'/'}>
-          <img className={styles.logo} src="/imgs/logo.png" alt="" />
+          <img className={styles.logo} src="/imgs/logo-my-gastronomy.png" alt="" />
         </Link>
 
         <div className={styles.navbarLinksContainer}>
-          <Link to={'/'}>
-            <a href="" className={styles.navbarLink}>Home</a>
+          <Link to={'/'} className={styles.navbarLink}>
+            Home
           </Link>
-          <Link to={'/plates'}>
-            <a href="" className={styles.navbarLink}>Plates</a>
+          <Link to={'/plates'} className={styles.navbarLink}>
+            Plates
           </Link>
           <Link to={'/cart'}>
             <LuShoppingCart className={styles.navbarLink} />
           </Link>
-          <Link to={'/profile'}>
+          <Link to={'/profile'} className={styles.navbarLinkProfile}>
             <LuUserCircle className={styles.navbarLink} />
+            <p>{authData?.user?.fullname}</p>
           </Link>
           
         </div>
