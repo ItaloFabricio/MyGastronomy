@@ -6,6 +6,7 @@ import styles from './page.module.css';
 import { LuAlertCircle, LuCheckCircle, LuLogOut, LuTimer } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import Loading from "../loading/page";
+import { useUserContext } from "../../contexts/useUserContext";
 
 
 export default function Profile () {
@@ -13,6 +14,7 @@ export default function Profile () {
     const { getUserOrders, orderLoading, refetchOrders, ordersData} = orderServices();
     const navigate = useNavigate();
     const authData = JSON.parse(localStorage.getItem('auth'));
+    const { setUser } =  useUserContext();
 
     useEffect(() => {
         if(!authData) {
@@ -28,6 +30,7 @@ export default function Profile () {
 
     const handleLogout = () => {
         logout();
+        setUser(undefined);
         return navigate('/');
     }
 

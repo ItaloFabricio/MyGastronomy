@@ -4,17 +4,26 @@ import { Drawer } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../../contexts/useUserContext";
+import authService from "../../services/auth";
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
-  const { user } =  useUserContext();
-  const firstName = user?.user?.fullname?.split(' ')[0];
+  const { user, setUser } =  useUserContext();
+  const [firstName, setFirstName] = useState('');
  
 
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
   };
 
+
+  useEffect(() => {
+    if (user?.user?.fullname) {
+      setFirstName(user.user.fullname.split(' ')[0]);
+    } else {
+      setFirstName(''); 
+    }
+  }, [user]);
  
 
   return (
@@ -36,7 +45,7 @@ export default function Navbar() {
           </Link>
           <Link to={'/profile'} className={styles.navbarLinkProfile}>
             <LuUserCircle className={styles.navbarLink} />
-           {firstName && <p>{firstName}</p>}
+           {firstName}
           </Link>
           
         </div>
