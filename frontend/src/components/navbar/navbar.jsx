@@ -40,6 +40,9 @@ export default function Navbar() {
           <Link to={'/plates'} className={styles.navbarLink}>
             Plates
           </Link>
+          <Link to={'/orders'} className={styles.navbarLink}>
+            Orders
+          </Link>
           <Link to={'/cart'}>
             <LuShoppingCart className={styles.navbarLink} />
           </Link>
