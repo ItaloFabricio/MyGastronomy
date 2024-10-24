@@ -35,3 +35,7 @@ p {
 	align-items: center;
 	gap: 0.5em;
 }
+
+h1 {
+	color: #444444;
+}

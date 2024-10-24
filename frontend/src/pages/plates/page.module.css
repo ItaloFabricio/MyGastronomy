@@ -3,5 +3,29 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
     cursor: pointer;
+    align-self: center;
 }
 
+.container h1 {
+    margin: 1em 0;
+    color: #444444;
+}
+
+@media screen and (max-width: 1250px) {
+    .platesContainer {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 1em;
+    }
+    .container h1 {
+        padding: 0 1em;
+        margin: 1em 0;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .platesContainer {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 1em;
+    }
+}
