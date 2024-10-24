@@ -4,12 +4,13 @@
     align-items: center;
     border-radius: 1em;
     padding: .8em;
+    height: 200px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .cardContainer img {
-    min-width: 180px;
-    height: 180px;
+    min-width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 1em;
 }

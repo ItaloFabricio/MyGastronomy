@@ -1,3 +1,4 @@
+import { TextLimit } from '../textLimit/textLimit';
 import styles from './plateCard.module.css';
 
 export default function PlateCard({plateData}) {
@@ -8,8 +9,9 @@ export default function PlateCard({plateData}) {
             <div className={styles.cardContainer}>
                 <img src={plateData.imgUrl} />
                 <div className={styles.cardContent}>
-                    <h4>{plateData.name}</h4>
-                    <p>{plateData.ingredients}</p>
+                    <TextLimit text={plateData.name} limit={32} as='h4' />
+                    <TextLimit text={plateData.ingredients} limit={46} />
+                    
                     <h3 className={styles.price}> $ {plateData.price}</h3>
                 </div>
             </div>
