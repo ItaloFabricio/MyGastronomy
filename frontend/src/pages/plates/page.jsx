@@ -41,7 +41,7 @@ export default function Plates () {
 
     return (
         <>
-            <div>
+            <div className={styles.platesContainer}>
                 {platesData.map((plate) => (
                     <div key={plate._id} className={styles.cardContainer} onClick={() => {handlePlateSelected(plate)}}>
                         <PlateCard plateData={plate} />
