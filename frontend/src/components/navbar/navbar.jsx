@@ -53,7 +53,7 @@ export default function Navbar() {
 
       <div className={styles.mobileNavbarItems}>
         <Link to={'/'}>
-          <img className={styles.logo} src="/imgs/logo.png" alt="" />
+          <img className={styles.logo} src="/imgs/logo-my-gastronomy.png" alt="" />
         </Link>
         <div className={styles.mobileNavbarBtns}>
           <Link to={'/cart'}>
@@ -70,14 +70,14 @@ export default function Navbar() {
         
       >
         <div className={styles.drawer}>
-          <Link to={'/'} onClick={handleOpenMenu}>
-            <a href="" className={styles.navbarLink}>Home</a>
+          <Link to={'/'} onClick={handleOpenMenu} className={styles.navbarLink}>
+            Home
           </Link>
-          <Link to={'/plates'} onClick={handleOpenMenu}>
-            <a href="" className={styles.navbarLink}>Plates</a>
+          <Link to={'/plates'} onClick={handleOpenMenu} className={styles.navbarLink}>
+            Plates
           </Link>
-          <Link to={'/profile'} onClick={handleOpenMenu}>
-            <a href="" className={styles.navbarLink}>Perfil</a>
+          <Link to={'/profile'} onClick={handleOpenMenu} className={styles.navbarLink}>
+            Perfil
           </Link>
         </div>
       </Drawer>

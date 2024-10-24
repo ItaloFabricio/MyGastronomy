@@ -60,15 +60,24 @@
     padding: 0.5em
 }
 
+.mobileNavbarBtns .navbarLink {
+    cursor: pointer;
+}
+
 .drawer {
     display: flex;
     flex-direction: column;
     height: 100%;
     padding: 3em;
     gap: 1em;
-    background-color: #004643;
+    background-color: #fff;
     font-size: xx-large;
 }
+
+.drawer .navbarLink {
+    text-decoration: none;
+}
+
 
 @media screen and (max-width: 600px) {
     .navbarItems {
@@ -80,5 +89,6 @@
         align-items: center;
         justify-content: space-between;
         width: 100%;
+        padding: 0 1em;
     }
 }
