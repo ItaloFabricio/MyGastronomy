@@ -11,7 +11,7 @@
     color: #444444;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1280px) {
     .platesContainer {
         grid-template-columns: repeat(2, 1fr);
         padding: 0 1em;

@@ -44,7 +44,6 @@
     justify-content: center;
     align-items: center;
     gap: 1em;
-    padding: 0.5em;
 }
 
 .mobileNavbarItems {
@@ -78,8 +77,13 @@
     text-decoration: none;
 }
 
+@media screen and (max-width: 1280px) {
+    .navbarItems {
+        padding: 0 1em;
+    }
+}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .navbarItems {
         display: none;
     }
